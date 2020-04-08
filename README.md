@@ -1,7 +1,7 @@
 # URL Shortner Microservice
 
 ## Introduction
-It is an url shortner microservice api.It is useful in shrinking long string of url to a number.This microservice is only for learning purpose . Here is a [Live Version](http://www.google.fr/ "Live Version")
+It is an url shortner microservice api.It is useful in shrinking long string of url to a number.This microservice is only for learning purpose . Here is a [Live Version](https://inexpensive-quark-divan.glitch.me/"Live Version")
 
 ### Dependancies Used
  1. Express  
