@@ -1,6 +1,6 @@
 const router = require("express").Router();
 
-let URL = require("./model/url.model");
+let URL = require("../model/url.model");
 
 module.exports = app => {
   app.route("/api/new").post((req, res) => {
