@@ -5,7 +5,7 @@ const mongoose = require("mongoose");
 
 // const cors = require("cors");
 
-const api = require("./myApp");
+const api = require("./api/urlShortner");
 const cors = require("cors");
 const bodyParser = require("body-parser");
 const app = express();
@@ -42,5 +42,5 @@ app.get("/", function(req, res) {
 
 api(app);
 app.listen(port, function() {
-  console.log("Node.js listening ...");
+  console.log("Node.js listening "+port);
 });
