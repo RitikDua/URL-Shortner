@@ -1,26 +1,26 @@
+"use strict";
 
-const express = require("express");
-const mongo = require("mongodb");
-const mongoose = require("mongoose");
+var express = require("express");
+var mongo = require("mongodb");
+var mongoose = require("mongoose");
 
-// const cors = require("cors");
+// var cors = require("cors");
 
-const api = require("./api/urlShortner");
-const cors = require("cors");
-const bodyParser = require("body-parser");
-const app = express();
+var api = require("./myApp");
+var cors = require("cors");
+var bodyParser = require("body-parser");
+var app = express();
+require("dotenv").config();
+
 // Basic Configuration
-require('dotenv').config()
+var port = process.env.PORT || 3000;
 
-const port = process.env.PORT || 3000;
+/** this project needs a db !! **/
 
-
-mongoose.connect(
-  process.env.URI,{
-    useNewUrlParser: true,
-    useUnifiedTopology: true
-  }
-);
+mongoose.connect(process.env.URI, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true
+});
 mongoose.connection.once("open", () => {
   console.log("Db Connection");
 });
@@ -33,14 +33,21 @@ app.use(
     extended: true
   })
 );
+/** this project needs to parse POST bodies **/
+// you should mount the body-parser here
 
+app.use("/public", express.static(process.cwd() + "/public"));
 
 app.get("/", function(req, res) {
   res.sendFile(process.cwd() + "/views/index.html");
 });
 
+// your first API endpoint...
+app.get("/api/hello", function(req, res) {
+  res.json({ greeting: "hello API" });
+});
 
 api(app);
 app.listen(port, function() {
-  console.log("Node.js listening "+port);
+  console.log("Node.js listening ...");
 });
