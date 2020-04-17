@@ -1,9 +1,9 @@
 const router = require("express").Router();
 
-let URL = require("../model/url.model");
+let URL = require("./model/url.model");
 
 module.exports = app => {
-  app.route("/api/new").post((req, res) => {
+  app.route("/").post((req, res) => {
     //console.log(req.body.url + " Ritik ");
     if (checkUrl(req.body.url)) {
       const originalurl = req.body.url;
@@ -31,7 +31,7 @@ module.exports = app => {
       .then((r) => res.json(r))
       .catch((err) => res.status(400).json("Error"));
   });*/
-  app.route("/api/:query").get((req, res) => {
+  app.route("/:query").get((req, res) => {
     if (/^\d+$/.test(req.params.query)) {
       var nums = parseInt(req.params.query);
       URL.findOne({ shorturl: nums })
