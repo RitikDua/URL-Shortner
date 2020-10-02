@@ -1,115 +1,127 @@
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link
-      href="https://fonts.googleapis.com/css?family=Bangers"
-      rel="stylesheet"
-    />
-    <link
-      href="http://fonts.googleapis.com/css?family=Merienda+One"
-      rel="stylesheet"
-      type="text/css"
-    />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link
-      rel="stylesheet"
-      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css"
-    />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+<head>
+  <title>URL Shortener</title>
+  <meta charset="utf-8" />
+  <link href="https://fonts.googleapis.com/css?family=Bangers" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css" />-->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>-->
+  <style type="text/css">
+    body {
+      background-color: rgba(14, 233, 233, 0.6);
+      background-size: cover;
+      width: 100vw;
+      height: 100vh;
+      overflow-x: hidden;
+      overflow-y: hidden;
+      text-align: center;
+      margin: 0;
+    }
+    .container {
+      background-color: rgba(13, 13, 35, 0.75);
+      text-align:justify;
+      position: absolute;
+      width: clamp(60%, 5%, 80%);
+      height: clamp(40%, 5%, 60%);
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      border-radius: 10px;
+      box-shadow: 5px 5px 15px rgba(13, 13, 35, 0.9);
+    }
 
-    <style type="text/css">
-      body {
-        background-color: rgba(34, 167, 240, 0.6);
-        background-size: cover;
-        width: 100vw;
-        height: 100vh;
-        overflow-x: hidden;
-        overflow-y: hidden;
-        text-align: center;
-      }
-      .container {
-        width: 50vw;
+    .content {
+      width: 80%;
+      padding: 10px 0;
+      margin: 0;
+      position: relative;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      border-radius: 15px;
+      background-color: rgba(0, 0, 0, 0.10);
+    }
 
-        margin-top: 3%;
-      }
-      @media (max-width: 800px) {
-        .container {
-          width: 79vw;
-        }
-      }
-      h2 {
-        font-family: Helvetica;
-        text-align: center;
-        padding: 1vw;
-        color: white;
-        font: 400 5vh/1.2 "Merienda One", Helvetica, sans-serif;
-        color: white;
-        text-shadow: 3px 3px 3px rgba(13, 13, 35, 0.9);
+    #myForm {
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: center
+    }
 
-        background-color: rgba(34, 167, 240, 1);
-      }
-    </style>
-  </head>
-  <title>Sign Up</title>
-  <body>
-    <div class="container" style="text-align:justify;">
-      <h2>
-        URL SHORTNER
-      </h2>
+    #url_input, #sub {
+      width: 80%;
+      height: 40px;
+      padding: 0 10px;
+    }
 
-      <div class="jumbotron">
-        <form method="POST" id="myForm">
-          <div class="input-group">
-            <!--label for="url_input">URL to be shortened</label-->
-            <input
-              type="text"
-              class="form-control"
-              minlength="3"
-              required
-              id="url_input"
-              name="url"
-              placeholder="https://www.google.com"
-              style="border-radius:6px;margin-bottom:1vh"
-            />
-          </div>
-          <div class="input-group">
-            <button type="submit" class="btn btn-info btn-md" id="sub" ->
-              Shrink it
-            </button>
-          </div>
-        </form>
-        <br />
+    #url_input {
+      border-radius: 15px;
+      border: 0px;
+      box-shadow: inset 2px 2px 5px black;
+    }
 
-        <h4 id="copy"></h4>
-        <!--button class="btn btn-info btn-md" onclick="copy('copy')">
-          Copy link
-        </button-->
-      </div>
+    #sub {
+      border-radius: 5px;
+      background-color: rgba(14, 233, 233, 0.6);
+      color: white;
+      font-weight: 500;
+      border: 0px;
+      box-shadow: 2px 2px 5px black;
+    }
+
+    h2 {
+      font-family: 'Balsamiq Sans', cursive;
+      text-align: left;
+      padding: 1vw 3vw;
+      margin: 0;
+      font: 400 clamp(3vh) / 1.2 "Merienda One", Helvetica, sans-serif;
+      font-weight: 600;
+      color: white;
+      background: #272727;
+      border-top-left-radius: 10px;
+      border-top-right-radius: 10px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h2>URL Shortener</h2>
+    <div class="content">
+      <form method="POST" id="myForm">
+        <input type="text" class="form-control" minlength="3" required id="url_input" name="url" placeholder="https://www.google.com" style="border-radius:6px;margin-bottom:1vh;" />
+        <button type="submit"id="sub">Shrink it</button>
+        </div>
+      </form>
+      <br/>
+      <h4 id="copy"></h4>
     </div>
+  </div>
 
-    <script>
-      document.forms["myForm"].addEventListener("submit", event => {
-        event.preventDefault();
+  <script>
+    document.forms["myForm"].addEventListener("submit", event => {
+      event.preventDefault();
 
-        fetch(event.target.action, {
-          method: "POST",
-          body: new URLSearchParams(new FormData(event.target)) //
+      fetch(event.target.action, {
+        method: "POST",
+        body: new URLSearchParams(new FormData(event.target)) //
+      })
+        .then(resp => {
+          return resp.json();
         })
-          .then(resp => {
-            return resp.json();
-          })
-          .then(body => {
-            let obj = JSON.stringify(body);
-            if (JSON.parse(obj).short_url != undefined) {
-              document.getElementById("copy").innerHTML =
-                "https://inexpensive-quark-divan.glitch.me/" +
-                JSON.parse(obj).short_url; //index["short_url"];
-            } else {
-              document.getElementById("copy").innerHTML = "Error: Wrong input";
-            }
-          });
-      });
-    </script>
-  </body>
+        .then(body => {
+          let obj = JSON.stringify(body);
+          if (JSON.parse(obj).short_url != undefined) {
+            document.getElementById("copy").innerHTML =
+              "https://inexpensive-quark-divan.glitch.me/" +
+              JSON.parse(obj).short_url; //index["short_url"];
+          } else {
+            document.getElementById("copy").innerHTML = "Error: Wrong input";
+          }
+        });
+    });
+  </script>
+</body>
 </html>
