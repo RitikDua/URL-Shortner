@@ -1,4 +1,4 @@
-"use strict";
+
 
 var express = require("express");
 var mongo = require("mongodb");
@@ -6,7 +6,7 @@ var mongoose = require("mongoose");
 
 // var cors = require("cors");
 
-var api = require("./myApp");
+var api = require("./api/urlShortner");
 var cors = require("cors");
 var bodyParser = require("body-parser");
 var app = express();

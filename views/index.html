@@ -101,9 +101,10 @@
           })
           .then(body => {
             let obj = JSON.stringify(body);
+	    let url="http://localhost:3000/"; //set URL as per your requirement
             if (JSON.parse(obj).short_url != undefined) {
               document.getElementById("copy").innerHTML =
-                "https://inexpensive-quark-divan.glitch.me/" +
+                url +
                 JSON.parse(obj).short_url; //index["short_url"];
             } else {
               document.getElementById("copy").innerHTML = "Error: Wrong input";
